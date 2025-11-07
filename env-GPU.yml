@@ -1,0 +1,28 @@
+name: ML_GPU  # 环境名称，可自定义
+channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ #从清华源安装
+  - conda-forge  # 从 conda-forge 源安装
+  - defaults
+dependencies:
+  - python=3.8  # 固定为你已有的 Python 3.8 版本，避免版本冲突
+  # 1. 数据读取与预处理（对应 tgt.docx “数据读取与预处理”功能）
+  - xarray=2022.11.0  # 核心用于读取 NetCDF/HDF 时空数据
+  - netcdf4=1.6.0     # 解析 NetCDF 格式，适配xarray 版本
+  - h5py=3.7.0        # 解析 HDF 格式
+  - pandas=1.5.3      # 时间序列处理、特征表格构建
+  - numpy=1.23.5      # 数值计算（处理缺失值/异常值）
+  - scipy=1.9.3       # 科学计算（异常值检测、统计分析）
+  # 2. 特征工程与模型构建
+  - pytorch=1.12.1=py3.8_cuda11.6_cudnn8.3.2_0  # GPU版本PyTorch，指定CUDA 11.6
+  - torchvision=0.13.1=py38_cu116  # 对应GPU版本的torchvision，适配CUDA 11.6
+  # 3. 不确定性评估
+  - statsmodels=0.13.5     # 统计分析（辅助误差估计）
+  # 4. 结果可视化与输出
+  - matplotlib=3.6.3       # 基础图表（指标图、散点图）
+  - seaborn=0.12.2         # 美化图表（模型对比图）
+  - cartopy=0.21.1         # 地理可视化（中国近海时空分布图，匹配经纬度100-180/0-60）
+  - folium=0.14.0          # 交互式地图（验证洋流/锋面一致性）
+  - hvplot=0.8.4           # 时空动态图（展示7天预测变化）
+  # 5. 工具类依赖
+  - jupyter=1.0.0          # 文档化代码（记录训练流程）
+  - ipython=8.12.2         # 交互式调试（数据处理/模型代码）
