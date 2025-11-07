@@ -1,0 +1,60 @@
+# Python
+#
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+env-*.yml
+*.egg
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+*.coveragerc
+.cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# PyCharm
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+# Trae
+.trae/
+# 数据目录 - 忽略所有文件但保留目录结构
+# 创建空的 .gitkeep 文件来确保目录被跟踪
+/data/*
+!/data/.gitkeep
+/data_raw/*
+!/data_raw/.gitkeep
+/dataset/*
+!/dataset/.gitkeep
+
+# 模型结果目录
+/ModelTraining/predictionVis/
+/ModelTraining/stcnn_model.pth
+/ModelTraining/loss_history*.png
+/ModelTraining/training_log_*.txt
+
+# 可视化结果
+/visualization_results/
+
+# 系统文件
+*.log
+*.tmp
+*.temp
+
+# 编辑器备份文件
+*~
+*.swp
+*.swo
+
+# Windows 文件
+Thumbs.db
